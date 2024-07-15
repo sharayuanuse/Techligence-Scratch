@@ -16,6 +16,10 @@ const registerUser = async (req , res) => {
     const {role , email , password} = req.body
     const userExists = await vcUser.findOne({email , role})
 
+    // if(role.toLowerCase() !== 'user' || role.toLowerCase() !== 'admin'){
+    //     res.status(400).json({message : "Invalid Role" , role : role})
+    // }
+
     if(userExists){
         res.status(400).json({message: 'user already exists'})
     }

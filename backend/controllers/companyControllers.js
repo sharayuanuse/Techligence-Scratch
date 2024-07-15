@@ -17,7 +17,7 @@ const registerUser = async (req , res) => {
     const userExists = await companyUser.findOne({email , role})
 
     if(userExists){
-        res.status(400).json({message : 'user already exists'})
+        res.status(400).json({message : 'User already exists'})
     }
 
     const user = await companyUser.create({
